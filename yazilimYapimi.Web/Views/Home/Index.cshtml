@@ -1,0 +1,28 @@
+﻿@using yazilimYapimi.Web.Entity;
+@model IEnumerable<Urun>
+@{
+    ViewBag.Title = "Index";
+}
+<div class="container mt-5">
+    <div class="row">
+        @foreach (var Urun in Model)
+        {
+            <div class="col-md-3 product mb-4">
+                <div class="card">
+                    <img class="card-img-top"
+                         src="~/Upload/@Urun.image"
+                         alt="@Urun.UrunAdi" />
+                    <div class="card-body">
+                        <h5 class="card-title">@Urun.UrunAdi</h5>
+                        <p class="card-text">
+                            @Urun.UrunFiyat TL
+                        </p>
+                        @Html.ActionLink("Satın Al", "UrunAlim", new { id = Urun.UrunId }, new { @class = "btn btn-success btn-sm" })
+                        
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
